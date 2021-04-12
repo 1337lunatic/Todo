@@ -4,42 +4,70 @@
             <div class='title'>
                 Todo items
             </div>
+			<div style="justify-content:center; display: flex;">
+				<AddTask @add-task="$emit('add-task')"/>
+			</div>
 			<div>
-				<todo-container :todoitems='todoItems'></todo-container>
+				<Tasks @delete-task="DeleteTask" :tasks="tasks"></Tasks>
 			</div>
         </div>
     </div>
 </template>
 
 <script>
-import todoContainer from '~/components/todo-container.vue'
+import { created } from 'vue'
+import Tasks from '~/components/Tasks.vue'
+import AddTask from '~/components/AddTask.vue'
+
 export default {
-  components: { todoContainer },
+  components: { 
+	  Tasks,
+	  AddTask,
+	},
+
 	data: () =>{
 		return {
-			todoItems: [
+			tasks: []
+		}
+	},
+
+	methods:{
+		DeleteTask(id){
+			this.tasks = this.tasks.filter((task) => task.id !== id)
+		},
+	},
+
+	created() {
+		this.tasks = [
 				{
-					ID: 1,
+					id: 1,
 					name: "Wash clothes",
-					checked: false
+					checked: false,
+					reminder: true,
+					day: 'April 10th @ 10:00',
 				},
 				{
-					ID: 2,
+					id: 2,
 					name: "Buy milk",
-					checked: false
+					checked: false,
+					reminder: true,
+					day: 'April 10th @ 11:00',
 				},	
 				{
-					ID: 3,
+					id: 3,
 					name: "Git gut",
-					checked: false
+					checked: false,
+					day: 'April 7th @ 15:00',
+					reminder: true,
 				},
 				{
-					ID: 4,
+					id: 4,
 					name: "Sleep",
-					checked: false
+					checked: false,
+					day: 'April 7th @ 22:00',
+					reminder: false,
 				}
-			]
-		}
+		]
 	}
 }
 </script>
@@ -82,7 +110,4 @@ export default {
 		padding-top: 15px;
 	}
 }
-
-
-
 </style>
