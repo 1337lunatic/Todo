@@ -87,7 +87,7 @@ export default {
 <style lang='scss'>
 @import '~/assets/css/config';
 
-.numserytter {
+.numserytter-ridderen {
 	display: flex;
 	flex-direction: column;
 	justify-content:center; 
