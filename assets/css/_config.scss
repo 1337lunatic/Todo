@@ -1,7 +1,7 @@
 // Config file for functions, variables, mixins, etc
 // Text colors
-$primary-text: #35495e;
-$secondary-text: #526488;
+$primary-color: #35495e;
+$secondary-color: #526488;
 
 // Background colors
 $black: #222;
@@ -9,8 +9,31 @@ $white: #f4f4f4;
 
 
 // Other
-.test {
-    display:flex;
-    flex-direction: row;
+@mixin primary-text {
+    color: $primary-color;
+    font-weight: 600;
+    font-family:
+      'Quicksand',
+      'Source Sans Pro',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
 }
 
+@mixin secondary-text {
+    color:$secondary-color;
+    font-weight: 300;
+    font-family:
+      'Source Sans Pro',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
+}

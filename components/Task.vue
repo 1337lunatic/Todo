@@ -50,10 +50,10 @@ export default {
         }
     }
     h3{
-        color: $primary-text;
+        color: $primary-color;
     }
     p{
-        color: $secondary-text;
+        color: $secondary-color;
         padding: 0;
         margin: 0;
     }

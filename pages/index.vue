@@ -4,7 +4,7 @@
             <div class='title'>
                 Todo items
             </div>
-			<div class='numserytter'>
+			<div class='numserytter-ridderen'>
     			<div class='addTask' @click="ToggleAddTask">
     			    Add Task
     			</div>
