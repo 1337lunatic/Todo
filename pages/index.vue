@@ -4,8 +4,11 @@
             <div class='title'>
                 Todo items
             </div>
-			<div style="justify-content:center; display: flex;">
-				<AddTask @add-task="$emit('add-task')"/>
+			<div class='numserytter'>
+    			<div class='addTask' @click="ToggleAddTask">
+    			    Add Task
+    			</div>
+				<AddTask v-show="showAddTask" @add-task="AddTask"/>
 			</div>
 			<div>
 				<Tasks @delete-task="DeleteTask" :tasks="tasks"></Tasks>
@@ -27,14 +30,23 @@ export default {
 
 	data: () =>{
 		return {
-			tasks: []
+			tasks: [],
+			showAddTask: false
 		}
 	},
 
 	methods:{
+		ToggleAddTask(){
+			this.showAddTask = !this.showAddTask
+		},
+
 		DeleteTask(id){
 			this.tasks = this.tasks.filter((task) => task.id !== id)
 		},
+		AddTask(task){
+			// Creating a new array with the current list with the new task
+			this.tasks = [...this.tasks, task]
+		}
 	},
 
 	created() {
@@ -74,6 +86,13 @@ export default {
 
 <style lang='scss'>
 @import '~/assets/css/config';
+
+.numserytter {
+	display: flex;
+	flex-direction: column;
+	justify-content:center; 
+}
+
 .container {
   	margin: 0 auto;
   	min-height: 100vh;
@@ -109,5 +128,17 @@ export default {
 	.links {
 		padding-top: 15px;
 	}
+}
+.addTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    width: 100px;
+    height: 45px;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
 }
 </style>

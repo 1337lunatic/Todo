@@ -50,7 +50,7 @@ export default {
         display: flex;
         flex-direction: row;
         flex:1 0 70px; // Editing column axis due to parent element being set to column axis
-        width: 288px; // Editing the current elements width
+        width: 340px; // Editing the current elements width
         margin-top: 15px;
         padding: 10px;
         background: $white;
